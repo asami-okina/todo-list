@@ -4,11 +4,15 @@ import { toggleTodo, deleteTodo } from "@/app/actions";
 
 export function TodoList({ todos }: { todos: Todo[] }) {
   return (
-    <ul className="mt-4">
+    <ul className="mt-4" data-testid="todo-items">
       {todos.map(
         (todo) =>
           todo.id !== undefined && (
-            <li key={todo.id} className="flex items-center gap-2 mb-2">
+            <li
+              key={todo.id}
+              className="flex items-center gap-2 mb-2"
+              data-testid="todo-item"
+            >
               <input
                 type="checkbox"
                 checked={todo.completed}

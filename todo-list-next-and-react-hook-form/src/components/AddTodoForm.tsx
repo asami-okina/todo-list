@@ -26,6 +26,7 @@ export function AddTodoForm() {
         {...register("title")}
         placeholder="New todo"
         className="flex-grow px-2 py-1 border rounded text-gray-800"
+        aria-label="New todo"
       />
       <button
         type="submit"
