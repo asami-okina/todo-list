@@ -1,6 +1,6 @@
 "use client";
 
-import { addTodo } from "@/app/actions";
+import { addTodoAction } from "@/app/actions";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TodoFormSchema, TodoFormData } from "@/lib/validate";
@@ -16,7 +16,7 @@ export function AddTodoForm() {
   });
 
   const onSubmit = async (data: TodoFormData) => {
-    await addTodo(data);
+    await addTodoAction(data);
     reset();
   };
 

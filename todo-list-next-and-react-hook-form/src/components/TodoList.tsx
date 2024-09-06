@@ -1,6 +1,6 @@
 "use client";
 import { Todo } from "@/lib/validate";
-import { toggleTodo, deleteTodo } from "@/app/actions";
+import { toggleTodoAction, deleteTodoAction } from "@/app/actions";
 
 export function TodoList({ todos }: { todos: Todo[] }) {
   return (
@@ -16,7 +16,7 @@ export function TodoList({ todos }: { todos: Todo[] }) {
               <input
                 type="checkbox"
                 checked={todo.completed}
-                onChange={() => toggleTodo(todo.id!, !todo.completed)}
+                onChange={() => toggleTodoAction(todo.id!, !todo.completed)}
               />
               <span
                 style={{
@@ -25,7 +25,7 @@ export function TodoList({ todos }: { todos: Todo[] }) {
               >
                 {todo.title}
               </span>
-              <form action={() => deleteTodo(todo.id!)}>
+              <form action={() => deleteTodoAction(todo.id!)}>
                 <button type="submit" className="ml-2 text-red-500">
                   Delete
                 </button>
