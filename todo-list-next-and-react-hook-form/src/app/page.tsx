@@ -1,10 +1,16 @@
-import { prisma } from "@/lib/prisma";
-import { TodoList } from "@/components/TodoList";
-import { AddTodoForm } from "@/components/AddTodoForm";
-import { Todo } from "@/lib/validate";
+import { prisma } from "../lib/prisma";
+import { TodoList } from "../components/TodoList";
+import { AddTodoForm } from "../components/AddTodoForm";
+import { Todo } from "../lib/validate";
 
 export default async function Home() {
-  const todos = (await prisma.todo.findMany()) as Todo[];
+  let todos: Todo[] = [];
+
+  try {
+    todos = (await prisma.todo.findMany()) as Todo[];
+  } catch (error) {
+    console.error("Failed to fetch todos:", error);
+  }
 
   return (
     <main className="max-w-4xl mx-auto mt-4">
