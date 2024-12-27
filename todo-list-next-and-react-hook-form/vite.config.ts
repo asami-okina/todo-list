@@ -9,6 +9,12 @@ export default defineConfig({
     globals: true,
     setupFiles: ["./vitest.setup.ts"],
     include: ["src/**/*.test.ts"],
+    coverage: {
+      enabled: true, // これを追加
+      provider: "v8", // これを追加
+      reporter: ["json-summary", "json"],
+      reportOnFailure: true,
+    },
   },
   resolve: {
     alias: {
